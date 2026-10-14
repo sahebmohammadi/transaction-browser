@@ -7,7 +7,7 @@ npm install
 npm run server
 ```
 
-This starts `json-server` on `http://localhost:3000` using `data/db.json`.
+This starts `json-server` on `http://localhost:3001` using `data/db.json`.
 
 ## 📌 Testing the APIs
 
@@ -18,18 +18,18 @@ Test the APIs in your browser's URL bar like the examples below, so you can conf
 ```js
 const query = e.target.value // e.g. 123
 ...
-axios.get(`http://localhost:3000/transactions?refId_like=${query}`)
+axios.get(`http://localhost:3001/transactions?refId_like=${query}`)
 ```
 
 👈🏻 **Sorting by price:**
 
 ```
-http://localhost:3000/transactions?_sort=price&_order=desc
-http://localhost:3000/transactions?_sort=price&_order=asc
+http://localhost:3001/transactions?_sort=price&_order=desc
+http://localhost:3001/transactions?_sort=price&_order=asc
 ```
 
 👈🏻 **Combined queries** (for example, search and sort at the same time):
 
 ```
-http://localhost:3000/transactions?refId_like=123&_sort=price&_order=asc
+http://localhost:3001/transactions?refId_like=123&_sort=price&_order=asc
 ```

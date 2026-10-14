@@ -1,14 +1,9 @@
-@import url("./fonts.css");
+@import "tailwindcss";
+@import "./fonts.css";
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  list-style-type: none;
-  text-decoration: none;
-}
+@theme {
+  --font-sans: Vazirmatn, ui-sans-serif, system-ui, sans-serif;
 
-:root {
   --color-secondary-900: rgb(17, 24, 39);
   --color-secondary-800: rgb(31, 41, 55);
   --color-secondary-700: rgb(55, 65, 81);
@@ -32,11 +27,6 @@
   --color-primary-100: rgb(219, 226, 255);
   --color-primary-50: rgb(228, 233, 255);
 
-  --border-radius-tiny: 3px;
-  --border-radius-sm: 5px;
-  --border-radius-md: 7px;
-  --border-radius-lg: 9px;
-
   --color-success: rgb(0, 192, 115);
   --color-warning: rgb(255, 153, 0);
   --color-error: rgb(255, 71, 87);
@@ -45,17 +35,22 @@
   --color-red-500: rgb(239, 68, 68);
   --color-red-300: rgb(252, 165, 165);
   --color-red-100: rgb(254, 226, 226);
+
+  --radius-tiny: 3px;
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 9px;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: var(--color-secondary-100);
-}
+@layer base {
+  body {
+    @apply bg-secondary-100 font-sans text-secondary-800 antialiased;
+    /* viewport-fit=cover lets the page run under a phone's notch in landscape. */
+    padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+  }
 
-body {
-  font-family: Vazirmatn;
-}
-
-html {
-  font-size: 62.5%;
+  /* Keep the page behind an open modal from scrolling. */
+  html:has(dialog:modal) {
+    overflow: hidden;
+  }
 }

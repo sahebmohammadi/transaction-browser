@@ -1,14 +1,24 @@
 {
   "name": "js-task",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Transaction browser: search, filter, sort and paginate transactions from a json-server mock API",
+  "type": "module",
   "scripts": {
-    "server": "json-server -p 3000 ./data/db.json --watch"
+    "dev": "concurrently -k -n api,css -c blue,magenta \"npm:server\" \"npm:css\"",
+    "server": "json-server -p 3001 --watch ./data/db.json -s .",
+    "css": "tailwindcss -i ./src/styles/index.css -o ./src/styles/output.css --watch",
+    "css:build": "tailwindcss -i ./src/styles/index.css -o ./src/styles/output.css --minify",
+    "seed": "node ./scripts/seed.js",
+    "test": "node --test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "concurrently": "10.0.6",
+    "tailwindcss": "4.3.3"
   }
 }

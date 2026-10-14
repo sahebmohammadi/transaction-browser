@@ -2,12 +2,36 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تسک دوره جاوااسکریپت</title>
-    <link rel="stylesheet" href="./styles/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>تراکنش‌ها | تسک دوره جاوااسکریپت</title>
+    <link rel="stylesheet" href="./styles/output.css" />
+    <script type="module" src="./js/index.js"></script>
   </head>
 
-  <body>
-    <script src="./js/index.js"></script>
+  <body class="min-h-screen">
+    <div class="mx-auto max-w-6xl space-y-4 px-4 py-6 sm:space-y-5 sm:px-6 sm:py-8 lg:py-10">
+      <header>
+        <h1 class="text-xl font-bold text-secondary-900 sm:text-2xl">تراکنش‌ها</h1>
+        <p class="mt-1 text-sm text-secondary-500">جستجو، فیلتر و مرتب‌سازی تراکنش‌های کیف پول</p>
+      </header>
+
+      <section id="summary" aria-label="خلاصه تراکنش‌ها" class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 transition-opacity aria-busy:pointer-events-none aria-busy:opacity-60 aria-busy:delay-150"></section>
+
+      <section
+        id="filters"
+        aria-label="جستجو و فیلترها"
+        class="rounded-lg bg-secondary-0 p-4 shadow-xs ring-1 ring-secondary-200 sm:p-5"
+      ></section>
+
+      <div id="error"></div>
+
+      <section
+        id="results"
+        aria-label="نتایج"
+        class="overflow-hidden rounded-lg bg-secondary-0 shadow-xs ring-1 ring-secondary-200 transition-opacity aria-busy:pointer-events-none aria-busy:opacity-60 aria-busy:delay-150"
+      ></section>
+
+      <div id="pagination" class="transition-opacity aria-busy:pointer-events-none aria-busy:opacity-60 aria-busy:delay-150"></div>
+    </div>
   </body>
 </html>
